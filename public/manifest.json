@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Gmail chrome extension",
+  "description": "Gmail chrome extension",
+  "version": "1.0",
+  "action": {
+    "default_icon": {
+      "16": "icons8-document-16.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "js/content_script.js"
+      ]
+    }
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ]
+}
