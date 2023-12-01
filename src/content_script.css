@@ -1,0 +1,130 @@
+.settings-button-wrapper {
+  position: absolute;
+  top: 300px;
+  right: 0px;
+  z-index: 2;
+  width: 65px;
+  height: 65px;
+  border-radius: 20px 0px 0px 20px;
+  overflow: hidden;
+  transition: right 0.5s linear;
+}
+
+.settings-button-wrapper_opened {
+  right: 380px;
+}
+
+.settings-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: #E5ECE9;
+  cursor: pointer;
+}
+
+.settings-button-icon {
+  width: 45px;
+  height: 45px;
+}
+
+.settings-view-wrapper {
+  position: absolute;
+  top: 230px;
+  right: 0px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  width: 380px;
+  height: 375px;
+  border-radius: 0px 0px 0px 4px;
+  background: #E5ECE9;
+  transition: width 0.5s linear ;
+  overflow: hidden;
+}
+
+.settings-view-wrapper_hidden {
+  width: 0px;
+}
+
+.settings-view-header {
+  width: 100%;
+  height: 30px;
+  border-radius: 4px 0px 0px 0px;
+  background: #505762;
+  margin-bottom: 12px;
+}
+
+.settings-view-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 325px;
+  height: 200px;
+  border-radius: 4px;
+  background: #FFF;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  transition: opacity 0.5s linear 0.5s;
+  opacity: 1;
+}
+
+.settings-view-content-wrapper_hidden {
+  opacity: 0;
+  transition: opacity 0.1s linear 0s;
+}
+
+.settings-view-text {
+  color: #000;
+  font-size: 20px;
+}
+
+.settings-view-cards-wrapper {
+  display: flex;
+  width: 100%;
+}
+
+.setting-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 7px;
+  align-items: center;
+}
+
+.setting-card-name {
+  color: #000;
+  font-size: 15px;
+}
+
+.setting-card-value {
+  color: rgba(0, 0, 0, 0.67);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.settings-view-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 325px;
+  height: 65px;
+  border-radius: 4px;
+  background: #4285F4;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  border: none;
+  transition: opacity 0.5s linear 0.5s;
+  opacity: 1;
+  color: #000;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.settings-view-button_hidden {
+  opacity: 0;
+  transition: opacity 0.1s linear 0s;
+}

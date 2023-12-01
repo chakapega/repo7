@@ -4,11 +4,11 @@ const srcDir = path.join(__dirname, "..", "src");
 
 module.exports = {
     entry: {
-      popup: path.join(srcDir, 'popup.tsx'),
-      content_script: path.join(srcDir, 'content_script.tsx'),
+        popup: path.join(srcDir, './popup.tsx'),
+        content_script: path.join(srcDir, './content_script.tsx'),
     },
     output: {
-        path: path.join(__dirname, "../dist/js"),
+        path: path.join(__dirname, '../dist/js'),
         filename: "[name].js",
     },
     module: {
@@ -18,6 +18,10 @@ module.exports = {
                 use: "ts-loader",
                 exclude: /node_modules/,
             },
+            {
+                use: ['style-loader', 'css-loader'],
+                test: /\.css$/i,
+            },
         ],
     },
     resolve: {
@@ -25,7 +29,7 @@ module.exports = {
     },
     plugins: [
         new CopyPlugin({
-            patterns: [{ from: ".", to: "../", context: "public" }],
+            patterns: [{ from: ".", to: "../", context: "public" }, {from: "assets", to: "../assets"}],
             options: {},
         }),
     ],
