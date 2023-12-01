@@ -34,22 +34,30 @@ const SettingsView = () => {
   const [gmailSettingsButton, setGmailSettingsButton] = useState<HTMLElement>()
 
   useEffect(() => {
-    setDensitySettingValue(getSettingValue(SettingNames.Density))
-    setInboxTypeSettingValue(getSettingValue(SettingNames.InboxType))
-    setReadingPaneSettingValue(getSettingValue(SettingNames.ReadingPane))
+    updateValueStates()
     setAreGmailSettingVisible(!!document.querySelector(getSettingsDivSelector()))
 
     setTimeout(() => {
-      setGmailSettingsButton(document.querySelector(getSettingsButtonSelector()) as HTMLElement)
+      const gmailSettingsButton = document.querySelector(getSettingsButtonSelector()) as HTMLElement
+      setGmailSettingsButton(gmailSettingsButton)
+      gmailSettingsButton?.addEventListener('click', () => {
+        if (!!document.querySelector(getSettingsDivSelector())) {
+          updateValueStates()
+        }
+      })
     }, 333)
   }, [])
 
+  const updateValueStates = () => {
+    setDensitySettingValue(getSettingValue(SettingNames.Density))
+    setInboxTypeSettingValue(getSettingValue(SettingNames.InboxType))
+    setReadingPaneSettingValue(getSettingValue(SettingNames.ReadingPane))
+  }
+
   const toggleGmailSettingsButton = () => {
     if (gmailSettingsButton) {
-      if (areGmailSettingVisible) {
-        setDensitySettingValue(getSettingValue(SettingNames.Density))
-        setInboxTypeSettingValue(getSettingValue(SettingNames.InboxType))
-        setReadingPaneSettingValue(getSettingValue(SettingNames.ReadingPane))
+      if (!!document.querySelector(getSettingsDivSelector())) {
+        updateValueStates()
       }
 
       gmailSettingsButton.click()
